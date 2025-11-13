@@ -6,10 +6,10 @@ def word_to_pig_latin(word: str) -> str:
             last_index += 1
         else:
             break;
-    return word[last_index:] + word[:last_index] + "ay"
+    return word[last_index:] + "-" + word[:last_index] + "ay"
 
 import sys
 if len(sys.argv)>1:
-    print(" ".join(sys.argv[1:]))
+    print(" ".join([word_to_pig_latin(word) for word in sys.argv[1:]]))
 else:
-    print(input("Enter text to be reversed\n")[::-1])
+    print(" ".join([word_to_pig_latin(word) for word in input("Enter text to be pig-latinified\n").split()]))
